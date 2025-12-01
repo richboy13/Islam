@@ -269,29 +269,32 @@
             z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            padding: 6px 14px;
-            border-radius: 20px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 5px 12px;
+            border-radius: 16px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .brand-footer:hover {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+            transform: translateX(-50%) translateY(-1px);
         }
 
         .brand-link {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            font-size: 0.85em;
+            color: #5a6c7d;
+            font-weight: 400;
+            font-size: 0.8em;
             transition: all 0.3s ease;
+            letter-spacing: 0.3px;
         }
 
         .brand-link:hover {
@@ -299,10 +302,16 @@
         }
 
         .instagram-icon {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             display: block;
             flex-shrink: 0;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-link:hover .instagram-icon {
+            opacity: 1;
         }
 
         .instagram-icon svg {
@@ -311,9 +320,14 @@
         }
 
         .brand-text {
-            font-size: 0.85em;
-            font-weight: 500;
-            opacity: 0.9;
+            font-size: 0.8em;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-link:hover .brand-text {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
@@ -364,21 +378,21 @@
 
             .brand-footer {
                 bottom: 80px;
-                padding: 5px 12px;
-                gap: 6px;
+                padding: 4px 10px;
+                gap: 5px;
             }
 
             .brand-link {
-                font-size: 0.8em;
+                font-size: 0.75em;
             }
 
             .instagram-icon {
-                width: 16px;
-                height: 16px;
+                width: 14px;
+                height: 14px;
             }
 
             .brand-text {
-                font-size: 0.8em;
+                font-size: 0.75em;
             }
 
             .nav-btn {
@@ -443,21 +457,21 @@
 
             .brand-footer {
                 bottom: 75px;
-                padding: 4px 10px;
-                gap: 5px;
+                padding: 3px 8px;
+                gap: 4px;
             }
 
             .brand-link {
-                font-size: 0.75em;
+                font-size: 0.7em;
             }
 
             .instagram-icon {
-                width: 14px;
-                height: 14px;
+                width: 13px;
+                height: 13px;
             }
 
             .brand-text {
-                font-size: 0.75em;
+                font-size: 0.7em;
             }
         }
     </style>
@@ -860,16 +874,9 @@
         <a href="https://www.instagram.com/nv_notes" target="_blank" rel="noopener noreferrer" class="brand-link">
             <div class="instagram-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#instagram-gradient)" />
-                    <circle cx="12" cy="12" r="5" fill="white" />
-                    <circle cx="17.5" cy="6.5" r="1.5" fill="white" />
-                    <defs>
-                        <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#833AB4;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#E1306C;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#FCAF45;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5" fill="none" />
+                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none" />
+                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
                 </svg>
             </div>
             <span class="brand-text">@nv_notes</span>
