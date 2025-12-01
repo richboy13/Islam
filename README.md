@@ -10,7 +10,9 @@
 
 ### 🌐 GitHub Pages
 
-Слайды доступны по адресу: https://richboy13.github.io/Islam/
+Главная страница: https://richboy13.github.io/Islam/
+
+Слайды доступны по адресу: https://richboy13.github.io/Islam/wudu-dua/
 
 ### 📱 Особенности
 
