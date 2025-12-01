@@ -27,10 +27,107 @@
             flex-direction: column;
         }
 
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        .header-logo:hover {
+            color: #667eea;
+        }
+
+        .header-logo-icon {
+            font-size: 1.3em;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: #5a6c7d;
+            font-size: 0.9em;
+            font-weight: 400;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .header-author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #5a6c7d;
+            font-size: 0.85em;
+            font-weight: 400;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .header-author:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .header-author-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-author:hover .header-author-icon {
+            opacity: 1;
+        }
+
+        .header-author-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
         .slides-container {
             flex: 1;
             position: relative;
             overflow: hidden;
+            margin-top: 70px;
         }
 
         .slide {
@@ -40,6 +137,7 @@
             width: 100%;
             height: 100%;
             padding: 40px;
+            padding-top: 20px;
             display: none;
             flex-direction: column;
             justify-content: flex-start;
@@ -171,7 +269,7 @@
 
         .navigation {
             position: fixed;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -182,16 +280,15 @@
         }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 12px 24px;
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.98);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
             font-size: 0.95em;
             font-weight: 600;
             color: #667eea;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(102, 126, 234, 0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
@@ -199,41 +296,39 @@
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
-            min-width: 110px;
-            min-height: 44px;
+            min-width: 130px;
+            min-height: 48px;
             position: relative;
             z-index: 10001;
             pointer-events: auto;
             letter-spacing: 0.3px;
+            overflow: hidden;
         }
 
         .nav-btn::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 30px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.35), 0 4px 12px rgba(0, 0, 0, 0.15);
-            border-color: rgba(102, 126, 234, 0.4);
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
         .nav-btn:hover::before {
-            opacity: 1;
+            left: 100%;
+        }
+
+        .nav-btn:hover {
+            background: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .nav-btn:active {
             transform: translateY(-1px) scale(0.98);
-            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
         }
 
         .nav-btn:focus {
@@ -241,21 +336,31 @@
             outline-offset: 3px;
         }
 
+        .nav-btn-prev {
+            padding-left: 20px;
+        }
+
+        .nav-btn-next {
+            padding-right: 20px;
+        }
+
         .slide-indicator {
             position: fixed;
-            top: 30px;
+            top: 85px;
             right: 30px;
             background: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
+            backdrop-filter: blur(10px);
+            padding: 8px 18px;
             border-radius: 25px;
-            font-weight: bold;
+            font-weight: 600;
             color: #667eea;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            font-size: 0.9em;
         }
 
         .slide-number {
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         .intro-text {
@@ -282,75 +387,39 @@
             font-family: 'Arial', sans-serif;
         }
 
-        .brand-footer {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            padding: 6px 10px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .brand-footer:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .brand-link {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 400;
-            font-size: 0.75em;
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .brand-link:hover {
-            color: rgba(255, 255, 255, 1);
-        }
-
-        .instagram-icon {
-            width: 14px;
-            height: 14px;
-            display: block;
-            flex-shrink: 0;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .brand-link:hover .instagram-icon {
-            opacity: 1;
-        }
-
-        .instagram-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .brand-text {
-            font-size: 0.75em;
-            font-weight: 400;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .brand-link:hover .brand-text {
-            opacity: 1;
-        }
 
         @media (max-width: 768px) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            .header-logo {
+                font-size: 1em;
+            }
+
+            .header-nav {
+                gap: 10px;
+            }
+
+            .header-link {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+
+            .header-author {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+
+            .header-author-icon {
+                width: 14px;
+                height: 14px;
+            }
+
+            .slides-container {
+                margin-top: 60px;
+            }
+
             .slide {
                 padding: 20px;
                 padding-bottom: 100px;
@@ -386,7 +455,7 @@
             }
 
             .navigation {
-                bottom: 20px;
+                bottom: 25px;
                 left: 50%;
                 transform: translateX(-50%);
                 flex-wrap: nowrap;
@@ -399,41 +468,60 @@
             .nav-btn {
                 padding: 12px 20px;
                 font-size: 0.9em;
-                min-width: 100px;
-                min-height: 44px;
+                min-width: 110px;
+                min-height: 46px;
                 flex: 1;
-                border-radius: 25px;
-            }
-
-            .brand-footer {
-                bottom: 20px;
-                right: 20px;
-                padding: 5px 9px;
-                gap: 4px;
-            }
-
-            .brand-link {
-                font-size: 0.7em;
-            }
-
-            .instagram-icon {
-                width: 13px;
-                height: 13px;
-            }
-
-            .brand-text {
-                font-size: 0.7em;
             }
 
             .slide-indicator {
-                top: 15px;
+                top: 75px;
                 right: 15px;
-                padding: 8px 15px;
-                font-size: 0.9em;
+                padding: 6px 14px;
+                font-size: 0.85em;
             }
         }
 
         @media (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
+
+            .header-left {
+                gap: 12px;
+            }
+
+            .header-logo {
+                font-size: 0.9em;
+            }
+
+            .header-logo-icon {
+                font-size: 1.2em;
+            }
+
+            .header-nav {
+                gap: 8px;
+            }
+
+            .header-link {
+                font-size: 0.8em;
+                padding: 5px 10px;
+                display: none;
+            }
+
+            .header-author {
+                font-size: 0.75em;
+                padding: 4px 8px;
+            }
+
+            .header-author-icon {
+                width: 12px;
+                height: 12px;
+            }
+
+            .slides-container {
+                margin-top: 55px;
+            }
+
             .slide {
                 padding: 15px;
                 padding-bottom: 100px;
@@ -465,7 +553,7 @@
             }
 
             .navigation {
-                bottom: 15px;
+                bottom: 20px;
                 width: calc(100% - 30px);
                 gap: 8px;
             }
@@ -473,35 +561,43 @@
             .nav-btn {
                 padding: 11px 16px;
                 font-size: 0.85em;
-                min-width: 90px;
-                min-height: 42px;
-                border-radius: 22px;
+                min-width: 100px;
+                min-height: 44px;
             }
 
-            .brand-footer {
-                bottom: 18px;
-                right: 18px;
-                padding: 4px 8px;
-                gap: 4px;
-            }
-
-            .brand-link {
-                font-size: 0.65em;
-            }
-
-            .instagram-icon {
-                width: 12px;
-                height: 12px;
-            }
-
-            .brand-text {
-                font-size: 0.65em;
+            .slide-indicator {
+                top: 70px;
+                right: 12px;
+                padding: 5px 12px;
+                font-size: 0.8em;
             }
         }
     </style>
 </head>
 
 <body>
+    <header class="header">
+        <div class="header-left">
+            <a href="https://richboy13.github.io/salyam_notes/" class="header-logo">
+                <span class="header-logo-icon">🕌</span>
+                <span>salyam_notes</span>
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="https://richboy13.github.io/salyam_notes/" class="header-link">Главная</a>
+            <a href="https://www.instagram.com/nv_notes" target="_blank" rel="noopener noreferrer" class="header-author">
+                <div class="header-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5" fill="none" />
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none" />
+                        <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
+                    </svg>
+                </div>
+                <span>@nv_notes</span>
+            </a>
+        </nav>
+    </header>
+
     <div class="slide-indicator">
         <span class="slide-number">1 / 11</span>
     </div>
@@ -894,23 +990,9 @@
         </div>
     </div>
 
-    <div class="brand-footer">
-        <a href="https://www.instagram.com/nv_notes" target="_blank" rel="noopener noreferrer" class="brand-link">
-            <div class="instagram-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5"
-                        fill="none" />
-                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none" />
-                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
-                </svg>
-            </div>
-            <span class="brand-text">@nv_notes</span>
-        </a>
-    </div>
-
     <div class="navigation">
-        <button class="nav-btn" id="prevBtn">← Назад</button>
-        <button class="nav-btn" id="nextBtn">Вперёд →</button>
+        <button class="nav-btn nav-btn-prev" id="prevBtn">← Назад</button>
+        <button class="nav-btn nav-btn-next" id="nextBtn">Вперёд →</button>
     </div>
 
     <script>
